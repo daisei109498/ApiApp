@@ -31,11 +31,15 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
     }
 
     override fun onClickItem(shop: Shop) {
-        WebViewActivity.start(this, shop.toString())
+        val url=if (shop.couponUrls.sp.isNotEmpty()) shop.couponUrls.sp else shop.couponUrls.pc
+        val id =shop.id
+        WebViewActivity.start(this, url,id)
     }
 
     override fun onClickItem(shop: FavoriteShop) {
-        WebViewActivity.start(this, shop.toString())
+        val url=shop.url
+        val id =shop.id
+        WebViewActivity.start(this, url,id)
     }
 
     override fun onAddFavorite(shop: Shop) { // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)
