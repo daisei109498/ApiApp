@@ -24,7 +24,7 @@ data class Shop(
     @SerializedName("access")
     val access: String,
     @SerializedName("address")
-    val address: String,
+    var address: String,
     @SerializedName("band")
     val band: String,
     @SerializedName("barrier_free")
@@ -46,7 +46,7 @@ data class Shop(
     @SerializedName("close")
     val close: String,
     @SerializedName("coupon_urls")
-    val couponUrls: CouponUrls,
+    var couponUrls: CouponUrls,
     @SerializedName("course")
     val course: String,
     @SerializedName("english")
@@ -60,7 +60,7 @@ data class Shop(
     @SerializedName("horigotatsu")
     val horigotatsu: String,
     @SerializedName("id")
-    val id: String,
+    var id: String,
     @SerializedName("karaoke")
     val karaoke: String,
     @SerializedName("ktai_coupon")
@@ -74,7 +74,7 @@ data class Shop(
     @SerializedName("lng")
     val lng: Double,
     @SerializedName("logo_image")
-    val logoImage: String,
+    var logoImage: String,
     @SerializedName("lunch")
     val lunch: String,
     @SerializedName("middle_area")
@@ -84,7 +84,7 @@ data class Shop(
     @SerializedName("mobile_access")
     val mobileAccess: String,
     @SerializedName("name")
-    val name: String,
+    var name: String,
     @SerializedName("name_kana")
     val nameKana: String,
     @SerializedName("non_smoking")
@@ -140,7 +140,7 @@ data class CouponUrls(
     @SerializedName("pc")
     val pc: String,
     @SerializedName("sp")
-    val sp: String
+    var sp: String
 )
 
 data class Genre(

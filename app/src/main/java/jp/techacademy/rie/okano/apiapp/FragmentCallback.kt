@@ -1,6 +1,7 @@
 package jp.techacademy.rie.okano.apiapp
 
 interface FragmentCallback {
+
     // Itemを押したときの処理
     fun onClickItem(shop: Shop)
     fun onClickItem(favoriteShop: FavoriteShop)

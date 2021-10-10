@@ -2,10 +2,12 @@ package jp.techacademy.rie.okano.apiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_web_view.*
 
 class MainActivity : AppCompatActivity(), FragmentCallback {
 
@@ -14,6 +16,12 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("ANDROID", "onResume")
 
         // ViewPager2の初期化
         viewPager2.apply {
@@ -33,13 +41,19 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
     override fun onClickItem(shop: Shop) {
         val url=if (shop.couponUrls.sp.isNotEmpty()) shop.couponUrls.sp else shop.couponUrls.pc
         val id =shop.id
-        WebViewActivity.start(this, url,id)
+        val name =shop.name
+        val address=shop.address
+        val imageUrl=shop.logoImage
+        WebViewActivity.start(this, id,name,address,imageUrl,url)
     }
 
     override fun onClickItem(shop: FavoriteShop) {
         val url=shop.url
         val id =shop.id
-        WebViewActivity.start(this, url,id)
+        val name =shop.name
+        val address=shop.address
+        val imageUrl=shop.imageUrl
+        WebViewActivity.start(this, id,name,address,imageUrl,url)
     }
 
     override fun onAddFavorite(shop: Shop) { // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)
